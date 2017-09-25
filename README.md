@@ -14,5 +14,10 @@ readme username/repository
 ## Installation
 
 ```bash
+# if you have go installed
 go get github.com/deltaskelta/readme
 ```
+
+if you do not currently have `go` installed on your system, you can go to the releases
+page to [download pre-compiled](https://github.com/deltaskelta/readme/releases/latest) binaries for your system.
+

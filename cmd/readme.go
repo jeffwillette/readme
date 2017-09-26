@@ -49,8 +49,9 @@ func Readme(s []string) {
 	for scanner.Scan() {
 		t := scanner.Text()
 
-		if c.MatchString(t) {
-			isCodeBlock = !isCodeBlock
+		wasCodeBlock := isCodeBlock
+		if !wasCodeBlock && c.MatchString(t) {
+			isCodeBlock = true
 		}
 
 		switch {
@@ -61,6 +62,10 @@ func Readme(s []string) {
 			code.Println(t)
 		default:
 			fmt.Println(t)
+		}
+
+		if wasCodeBlock && c.MatchString(t) {
+			isCodeBlock = false
 		}
 	}
 
